@@ -22,6 +22,11 @@ public class UploadStepDefinitions {
     @Given("user goes to homepage")
     public void user_goes_to_homepage() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
+        /*
+        You should careful here.Website has cookie alert.
+        It should be handled by manual "accept all" selection. Because of
+        that situation, I put that Thread.sleep wait to gain some time.
+         */
         Thread.sleep(5000);
 
     }
