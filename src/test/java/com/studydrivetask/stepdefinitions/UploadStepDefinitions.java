@@ -4,16 +4,12 @@ import com.studydrivetask.pages.StudyDrivePages;
 import com.studydrivetask.utilities.ConfigReader;
 import com.studydrivetask.utilities.Driver;
 import io.cucumber.java.en.*;
+import javafx.scene.effect.SepiaTone;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.security.krb5.Config;
+import org.openqa.selenium.Cookie;
 
-import java.sql.DriverManager;
+
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class UploadStepDefinitions {
@@ -22,6 +18,7 @@ public class UploadStepDefinitions {
     @Given("user goes to homepage")
     public void user_goes_to_homepage() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
+
         /*
         You should careful here.Website has cookie alert.
         It should be handled by manual "accept all" selection. Because of
@@ -69,6 +66,7 @@ public class UploadStepDefinitions {
     @When("user uploads the file")
     public void user_uploads_the_file() {
         sdp.dragAndDrop.sendKeys(ConfigReader.getProperty("path"));
+        //I sent the document from my local computer(disk).
         Driver.getDriver().manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
     }
 
@@ -103,6 +101,7 @@ public class UploadStepDefinitions {
         System.out.println("Actual Message= "+actualMessage);
         System.out.println("Expected Message= "+expectedMessage);
         Assert.assertEquals(expectedMessage,actualMessage);
+        Driver.getDriver().close();
     }
 
 

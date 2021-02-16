@@ -1,7 +1,6 @@
 package com.studydrivetask.pages;
 
 import com.studydrivetask.utilities.Driver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -67,6 +66,27 @@ public class StudyDrivePages {
 
         @FindBy(xpath = "//div[@class='ml-3']")
         public WebElement successMessage;
+
+        @FindBy(xpath="//a[@title='Profile']")
+        public WebElement profileButton;
+
+        @FindBy(xpath = "(//a[@target='_SELF'])[2]")
+        public WebElement myDocuments;
+
+        @FindBy(partialLinkText = "VeryImportantDocument.doc")
+        public WebElement documentName;
+
+        @FindBy(xpath="//h1")
+        public  WebElement documentsHead;
+
+        @FindBy(xpath = "//div[@data-specific-auth-trigger='download']")
+        public WebElement downloadButton;
+
+
+
+
+
+
 
 
 
